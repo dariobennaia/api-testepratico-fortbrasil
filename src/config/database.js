@@ -1,10 +1,12 @@
+/**
+ * Configurações para conexão com o mogoose
+ */
 const mongoose = require('mongoose');
 
 const { 
     DB_HOST,
     DB_USERNAME,
     DB_PASSWORD,
-    DB_DATABASE,
     DB_PORT
 } = process.env;
 
