@@ -1,5 +1,5 @@
 const Shop             = require('../models/Shop');
-const regexToSeachShop = require('../utils/RegexToSeachShop');
+const regexToSeachShop = require('../controllers/utils/RegexToSeachShop');
 
 /**
  * Classe de serviço responsavel por manipular a entidade
@@ -47,11 +47,6 @@ class ShopService {
      */
     async createShop(data) {
         const { latitude, longitude, ...info } = data;
-        const exists = await Shop.findOne({ name: info.name });
-        
-        if (exists) {
-            throw 'Loja já cadastrada';
-        }
 
         const location = {
             type: 'Point',
