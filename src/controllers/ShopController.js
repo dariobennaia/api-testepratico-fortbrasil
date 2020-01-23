@@ -1,9 +1,10 @@
-const ShopService = require('../services/ShopService');
-const regexToSeachShop = require('../utils/RegexToSeachShop');
+const ShopService      = require('../services/ShopService');
+const regexToSeachShop = require('./utils/RegexToSeachShop');
 
 /**
  * Classe responsável por manter as lojas do sistema
- * cadatrando, editando, excluindo e listando as informações.
+ * cadastrando, editando, excluindo e listando as 
+ * informações.
  */
 class ShopController {
     /**
@@ -49,7 +50,7 @@ class ShopController {
 
             await ShopService.updateShop(id, body);
 
-            return res.json({message: 'sucesso'}, 200);
+            return res.json({ message: 'sucesso' }, 200);
         } catch(err) {
             return res.json({
                 error: true,
@@ -70,7 +71,7 @@ class ShopController {
 
             await ShopService.destroyShop(id);
 
-            return res.json({message: 'sucesso'}, 200);
+            return res.json({ message: 'sucesso' }, 200);
         } catch(err) {
             return res.json({
                 error: true,

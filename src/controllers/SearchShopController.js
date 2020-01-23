@@ -1,4 +1,4 @@
-const ShopService      = require('../services/ShopService');
+const ShopService = require('../services/ShopService');
 
 /**
  * Classe responsável por consultar todas as lojas mais

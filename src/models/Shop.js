@@ -5,8 +5,14 @@ const PointSchema = require('./utils/PointSchema');
  * Modelo da entidade do projeto.
  */
 const ShopSchema = new mongoose.Schema({
-    name: String,
-    about: String,
+    name: {
+        type: String,
+        required: true,
+    },
+    about: {
+        type: String,
+        required: true,
+    },
     location: {
         type: PointSchema,
         index: '2dsphere'
