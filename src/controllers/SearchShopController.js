@@ -5,21 +5,18 @@ const ShopService = require('../services/ShopService');
  * proximas de acordo com a distancia informada.
  */
 class SearchShopController {
-    /**
-     * Metodo responsavel pela consulta das informações.
-     * @param {*} req 
-     * @param {*} res 
-     */
-    async index(req, res) {
-        const { distance } = req.params;
+  /**
+   * Metodo responsavel pela consulta das informações.
+   * @param {*} req
+   * @param {*} res
+   */
+  async index(req, res) {
+    const { distance } = req.params;
 
-        const response = await ShopService.findShopsDistanceOf(
-            distance,
-            req.query,
-        );
-        
-        return res.send(response);
-    }
+    const response = await ShopService.findShopsDistanceOf(distance, req.query);
+
+    return res.send(response);
+  }
 }
 
-module.exports = new SearchShopController;
+module.exports = new SearchShopController();

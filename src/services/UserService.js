@@ -5,52 +5,52 @@ const User = require('../models/User');
  * modelo.
  */
 class UserService {
-    /**
-     * Função responsavel por criar os resgistros
-     * de acordo com as especificações informadas.
-     * @param {*} data 
-     */
-    async createUser(data) {
-        const user = await User.findOne({ email: data.email });
+  /**
+   * Função responsavel por criar os resgistros
+   * de acordo com as especificações informadas.
+   * @param {*} data
+   */
+  async createUser(data) {
+    const user = await User.findOne({ email: data.email });
 
-        if (user) {
-            throw 'Já existe um usuário com esse email cadastrado.';
-        }
-
-        return User.create(data);
+    if (user) {
+      throw new Error('Já existe um usuário com esse email cadastrado.');
     }
 
-    /**
-     * Função responsavel por atualizar um registro
-     * de acordo com o id informado.
-     * @param {*} _id 
-     * @param {*} data 
-     */
-    async updateUserById(_id, data) {
-        const user = await User.findByIdAndUpdate({ _id }, data);
-        
-        if (!user) {
-            throw 'Usuário inexistente';
-        }
+    return User.create(data);
+  }
 
-        return user;
+  /**
+   * Função responsavel por atualizar um registro
+   * de acordo com o id informado.
+   * @param {*} _id
+   * @param {*} data
+   */
+  async updateUserById(_id, data) {
+    const user = await User.findByIdAndUpdate({ _id }, data);
+
+    if (!user) {
+      throw new Error('Usuário inexistente');
     }
 
-    /**
-     * Função responsavel por atualizar um registro
-     * de acordo com os parametros informados.
-     * @param {*} params 
-     * @param {*} data 
-     */
-    async updateUser(params, data) {
-        const exists = await User.findOne(params);
-        
-        if (!exists) {
-            throw 'Usuário inexistente';
-        }
+    return user;
+  }
 
-        return User.update(params, data);
+  /**
+   * Função responsavel por atualizar um registro
+   * de acordo com os parametros informados.
+   * @param {*} params
+   * @param {*} data
+   */
+  async updateUser(params, data) {
+    const exists = await User.findOne(params);
+
+    if (!exists) {
+      throw new Error('Usuário inexistente');
     }
+
+    return User.update(params, data);
+  }
 }
 
-module.exports = new UserService;
+module.exports = new UserService();

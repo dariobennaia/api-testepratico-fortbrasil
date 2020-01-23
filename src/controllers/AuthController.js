@@ -6,60 +6,59 @@ const UserService = require('../services/UserService');
  * do usuário.
  */
 class AuthController {
+  /**
+   * Metodo responsável por efetuar o login do usuário.
+   * @param {*} req
+   * @param {*} res
+   */
+  async store(req, res) {
+    try {
+      const { email, password } = req.body;
 
-    /**
-     * Metodo responsável por efetuar o login do usuário.
-     * @param {*} req 
-     * @param {*} res 
-     */
-    async store(req, res) {
-        try {
-            const { email, password } = req.body;
-            
-            const token = await AuthService.login(email, password);
+      const token = await AuthService.login(email, password);
 
-            res.json(token, 200);
-        } catch (err) {
-            res.json({ error: true, msg: err }, 400)
-        }
+      return res.json(token, 200);
+    } catch ({ message: msg }) {
+      return res.json({ error: true, msg }, 400);
     }
+  }
 
-    /**
-     * Metodo reponsável por atualizar a senha do usuário.
-     * @param {*} req 
-     * @param {*} res 
-     */
-    async update(req, res) {
-        try {
-            const { email, password } = req.body;
-            
-            await UserService.updateUser({ email }, { password });
+  /**
+   * Metodo reponsável por atualizar a senha do usuário.
+   * @param {*} req
+   * @param {*} res
+   */
+  async update(req, res) {
+    try {
+      const { email, password } = req.body;
 
-            res.json({ error: false, msg: 'sucesso' }, 200);
-        } catch(err) {
-            res.json({ error: true, msg: err }, 400);
-        }
+      await UserService.updateUser({ email }, { password });
+
+      return res.json({ error: false, msg: 'sucesso' }, 200);
+    } catch ({ message: msg }) {
+      return res.json({ error: true, msg }, 400);
     }
+  }
 
-    /**
-     * Metodo responsável por revogar o token de 
-     * autenticação do usuário.
-     * @param {*} req 
-     * @param {*} res 
-     */
-    async delete(req, res) {
-        try {            
-            const authHeader = req.headers.authorization;
+  /**
+   * Metodo responsável por revogar o token de
+   * autenticação do usuário.
+   * @param {*} req
+   * @param {*} res
+   */
+  async delete(req, res) {
+    try {
+      const authHeader = req.headers.authorization;
 
-            const token = authHeader.split(' ')[1];
+      const token = authHeader.split(' ')[1];
 
-            await AuthService.logout(token);
+      await AuthService.logout(token);
 
-            res.json({ error: false, msg: 'sucesso' }, 200);
-        } catch (err) {
-            res.json({ error: true, msg: err }, 400);
-        }
+      return res.json({ error: false, msg: 'sucesso' }, 200);
+    } catch ({ message: msg }) {
+      return res.json({ error: true, msg }, 400);
     }
+  }
 }
 
-module.exports = new AuthController;
+module.exports = new AuthController();
