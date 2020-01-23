@@ -11,13 +11,13 @@ const rules = [
       name,
       _id: { $ne: req.params.id }
     });
-    return shop.length > 0 && Promise.reject(new Error('Loja já cadastrada'));
+    return shop.length > 0 && Promise.reject(new Error('Loja já cadastrada!'));
   }),
 
   check('about')
     .optional()
     .isLength({ min: 1, max: 50 })
-    .withMessage('A senha deve ter até 50 caracteres!'),
+    .withMessage('O campo sobre deve ter até 50 caracteres!'),
 
   check('latitude')
     .optional()

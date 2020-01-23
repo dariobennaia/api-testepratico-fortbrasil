@@ -10,10 +10,10 @@ const rules = [
 
   check('about')
     .exists()
-    .withMessage('Campo password é obrigatorio!'),
+    .withMessage('Campo sobre é obrigatorio!'),
   check('about')
     .isLength({ min: 1, max: 50 })
-    .withMessage('A senha deve ter até 50 caracteres!'),
+    .withMessage('O campo sobre deve ter até 50 caracteres!'),
 
   check('latitude')
     .exists()

@@ -10,10 +10,7 @@ const rules = [
 
   check('password')
     .exists()
-    .withMessage('Informe a senha!'),
-  check('password')
-    .isLength({ min: 6, max: 16 })
-    .withMessage('A senha deve ter de 6 a 16 caracteres!')
+    .withMessage('Informe a senha!')
 ];
 
 const validate = (req, res, next) => {
