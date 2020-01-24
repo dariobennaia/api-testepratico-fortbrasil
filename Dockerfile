@@ -5,6 +5,7 @@ WORKDIR /app
 
 # copia os arquivos 'package.json' e 'package-lock.json' (se disponível)
 COPY package*.json ./
+COPY yarn* ./
 
 # instala dependências da api
 RUN yarn install
