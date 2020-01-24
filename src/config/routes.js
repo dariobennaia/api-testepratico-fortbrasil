@@ -23,12 +23,7 @@ routes.patch(
 );
 routes.delete('/logout', IsAuthenticated, AuthController.delete);
 
-routes.post(
-  '/users',
-  IsAuthenticated,
-  createUserValidation,
-  UserController.store
-);
+routes.post('/users', createUserValidation, UserController.store);
 
 routes.post(
   '/users/:id',
