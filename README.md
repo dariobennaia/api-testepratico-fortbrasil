@@ -1,11 +1,20 @@
 # Api teste prátio - (FortBrasil)
 
 - [service-client (REST)](#service-client-rest)
+  - [Especificações](#Especificações)
   - [Descrição](#descri%c3%a7%c3%a3o)
   - [Rodando o projeto (desenvolvimento)](#rodando-o-projeto-desenvolvimento)
     - [Localmente (node + yarn)](#localmente-node--yarn)
     - [No Docker (docker-compose)](#no-docker-docker-compose)
   
+## Especificações
+
+Especificações do projeto
+
+- Node >= 12
+- Docker >= 18
+- yarn >= 1.21.1
+
 ## Descrição
 
 API para gerênciamento de lojas feito em Express.

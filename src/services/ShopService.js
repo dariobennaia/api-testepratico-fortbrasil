@@ -32,7 +32,7 @@ class ShopService {
             type: 'Point',
             coordinates: [longitude, latitude]
           },
-          $maxDistance: distance * 1000
+          $maxDistance: distance
         }
       }
     };
