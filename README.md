@@ -13,6 +13,8 @@ Link do projeto rodando em uma VPS - [Teste Prático](http://157.245.249.89:8000
 
 OBS: **Lembre-se de ativar a localização para usar o sistema de forma completa, caso contrário baixe o projeto em sua maquina e execute localmente.**
 
+Endereço da Api [http://157.245.249.89:3003/](http://157.245.249.89:3003/)
+
 ## Especificações
 
 Especificações do projeto

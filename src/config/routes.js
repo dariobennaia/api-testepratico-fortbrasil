@@ -22,6 +22,10 @@ const updateShopValidation = require('../validations/shop/ShopCreateValidator');
 const loginValidation = require('../validations/auth/LoginValidator');
 const changePassValidaton = require('../validations/auth/ChangePasswordValidator');
 
+routes.get('/', (req, res) => {
+  return res.send('Hello World!');
+});
+
 /** **************************************************************
  * ***************************************************************
  * **                                                           **
@@ -59,7 +63,6 @@ routes.post('/shops', auth, createShopValidation, ShopController.store);
 routes.patch('/shops/:id', auth, updateShopValidation, ShopController.update);
 routes.delete('/shops/:id', auth, ShopController.delete);
 routes.get('/shops/distance-of/:distance', auth, SearchShopController.index);
-routes.get('/mobile/shops/distance-of/:distance', SearchShopController.index);
 /* ***************************************************************
  * ************************************************************ */
 
