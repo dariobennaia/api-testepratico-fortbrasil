@@ -63,6 +63,7 @@ routes.post('/shops', auth, createShopValidation, ShopController.store);
 routes.patch('/shops/:id', auth, updateShopValidation, ShopController.update);
 routes.delete('/shops/:id', auth, ShopController.delete);
 routes.get('/shops/distance-of/:distance', auth, SearchShopController.index);
+routes.get('/shops/mobile/distance-of/:distance', SearchShopController.index);
 /* ***************************************************************
  * ************************************************************ */
 
